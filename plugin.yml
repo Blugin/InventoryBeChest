@@ -1,0 +1,5 @@
+name: InventoryBeChest
+version: "1.0.0"
+author: "lowliver"
+api: ["4.0.0"]
+main: InventoryBeChest\Main
