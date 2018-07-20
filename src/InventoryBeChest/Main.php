@@ -16,6 +16,9 @@ class Main extends PluginBase implements Listener{
 		
 	public function ChangeItem(PlayerDeathEvent $event){
 		$player = $event->getPlayer();
+		if(!$player->isSurvival()){
+			return; // Works only for survival mode players
+		}
 		$inv = $player->getInventory();
 		$ainv = $player->getArmorInventory();
 		$level = $player->getLevel();
