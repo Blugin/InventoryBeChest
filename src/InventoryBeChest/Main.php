@@ -15,6 +15,7 @@ use pocketmine\item\Item;
 use pocketmine\block\Block;
 
 use pocketmine\tile\Chest as TileChest;
+use pocketmine\tile\Chest;
 use pocketmine\tile\Tile;
 
 use pocketmine\inventory\BaseInventory;
@@ -34,6 +35,7 @@ class Main extends PluginBase implements Listener{
 
 		$position = $player->floor();
 		$level->setBlock($position, Block::get(54, 0));
+		/** @var Chest $chestu */
 		$chestu = Tile::createTile(Tile::CHEST, $player->getLevel(), TileChest::createNBT($position));
 		$chestuinv = $chestu->getInventory();
 		for($i=9; $i<36; $i++){
@@ -45,6 +47,7 @@ class Main extends PluginBase implements Listener{
 
 		$position = $position->add(0, 1, 0);
 		$level->setBlock($position, Block::get(54, 0));
+		/** @var Chest $chesto */
 		$chesto = Tile::createTile(Tile::CHEST, $player->getLevel(), TileChest::createNBT($position));
 		$chestoinv = $chesto->getInventory();
 		for($i=0; $i<9; $i++){
