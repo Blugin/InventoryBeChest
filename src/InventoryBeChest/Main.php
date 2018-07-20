@@ -31,10 +31,7 @@ class Main extends PluginBase implements Listener{
 		$inv = $player->getInventory();
 		$ainv = $player->getArmorInventory();
 		$level = $player->getLevel();
-		$x = floor($player->getX());
-		$y = floor($player->getY());
-		$z = floor($player->getZ());
-		$position = new Vector3($x, $y, $z);
+		$position = $player->floor();
 		$event->setKeepInventory(true);
 		$level->setBlock($position, Block::get(54, 0));
 		$chestu = $level->getTile($position);
