@@ -53,10 +53,9 @@ class Main extends PluginBase implements Listener{
 			$amount = $inv->getItem($i)->getCount();
 			$chestoinv->setItem($i+18, Item::get($id, $damage, $amount));
 		}
-		$chestoinv->setItem(0, $ainv->getHelmet());
-		$chestoinv->setItem(1, $ainv->getChestplate());
-		$chestoinv->setItem(2, $ainv->getLeggings());
-		$chestoinv->setItem(3, $ainv->getBoots());
+		foreach($ainv->getContents(true) as $slot => $item){
+			$chestoinv->setItem($slot, $item);
+		}
 
 		$inv->clearAll();
 		$ainv->clearAll();
