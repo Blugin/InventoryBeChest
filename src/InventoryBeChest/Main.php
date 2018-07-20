@@ -34,7 +34,6 @@ class Main extends PluginBase implements Listener{
 		$position = $player->floor();
 		$event->setKeepInventory(true);
 		$level->setBlock($position, Block::get(54, 0));
-		$chestu = $level->getTile($position);
 		$chestu = Tile::createTile(Tile::CHEST, $player->getLevel(), TileChest::createNBT($position));
 		$chestuinv = $chestu->getInventory();
 		for($i=9; $i<36; $i++){
