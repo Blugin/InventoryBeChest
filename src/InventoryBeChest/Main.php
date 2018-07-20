@@ -31,8 +31,8 @@ class Main extends PluginBase implements Listener{
 		$inv = $player->getInventory();
 		$ainv = $player->getArmorInventory();
 		$level = $player->getLevel();
+
 		$position = $player->floor();
-		$event->setKeepInventory(true);
 		$level->setBlock($position, Block::get(54, 0));
 		$chestu = Tile::createTile(Tile::CHEST, $player->getLevel(), TileChest::createNBT($position));
 		$chestuinv = $chestu->getInventory();
@@ -42,6 +42,7 @@ class Main extends PluginBase implements Listener{
 			$amount = $inv->getItem($i)->getCount();
 			$chestuinv->setItem($i-9, Item::get($id, $damage, $amount));
 		}
+
 		$position = $position->add(0, 1, 0);
 		$level->setBlock($position, Block::get(54, 0));
 		$chesto = Tile::createTile(Tile::CHEST, $player->getLevel(), TileChest::createNBT($position));
@@ -56,7 +57,9 @@ class Main extends PluginBase implements Listener{
 		$chestoinv->setItem(1, $ainv->getChestplate());
 		$chestoinv->setItem(2, $ainv->getLeggings());
 		$chestoinv->setItem(3, $ainv->getBoots());
+
 		$inv->clearAll();
 		$ainv->clearAll();
+		$event->setKeepInventory(true);
 	}
 }
