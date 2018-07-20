@@ -39,10 +39,7 @@ class Main extends PluginBase implements Listener{
 		$chestu = Tile::createTile(Tile::CHEST, $player->getLevel(), TileChest::createNBT($position));
 		$chestuinv = $chestu->getInventory();
 		for($i=9; $i<36; $i++){
-			$id = $inv->getItem($i)->getId();
-			$damage = $inv->getItem($i)->getDamage();
-			$amount = $inv->getItem($i)->getCount();
-			$chestuinv->setItem($i-9, Item::get($id, $damage, $amount));
+			$chestuinv->setItem($i-9, $inv->getItem($i));
 		}
 
 		$position = $position->add(0, 1, 0);
@@ -51,10 +48,7 @@ class Main extends PluginBase implements Listener{
 		$chesto = Tile::createTile(Tile::CHEST, $player->getLevel(), TileChest::createNBT($position));
 		$chestoinv = $chesto->getInventory();
 		for($i=0; $i<9; $i++){
-			$id = $inv->getItem($i)->getId();
-			$damage = $inv->getItem($i)->getDamage();
-			$amount = $inv->getItem($i)->getCount();
-			$chestoinv->setItem($i+18, Item::get($id, $damage, $amount));
+			$chestoinv->setItem($i+18, $inv->getItem($i));
 		}
 		foreach($ainv->getContents(true) as $slot => $item){
 			$chestoinv->setItem($slot, $item);
