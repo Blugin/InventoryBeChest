@@ -42,7 +42,7 @@ class Main extends PluginBase implements Listener{
 			$amount = $inv->getItem($i)->getCount();
 			$chestuinv->setItem($i-9, Item::get($id, $damage, $amount));
 			}
-		$position = new Vector3($x, $y+1, $z);
+		$position = $position->add(0, 1, 0);
 		$level->setBlock($position, Block::get(54, 0));
 		$chesto = Tile::createTile(Tile::CHEST, $player->getLevel(), TileChest::createNBT($position));
 		$chestoinv = $chesto->getInventory();
